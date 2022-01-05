@@ -15,3 +15,6 @@
 对客户端来说，要访问远程Glacier2后的服务，只需要一个配置：
     properties.setProperty("Ice.Default.Router", "DefaultGlacier2/router:tcp -p 4064 -h 192.168.10.149");
 其它任何代码不需要改变。这个参数，就表示所有的调用，都是通过把Glacier2作为Router来进行的。
+
+
+HelloClient2.java 扩展自 com.zeroc.Glacier2.Application

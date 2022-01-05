@@ -3,21 +3,25 @@ package com.bglmmz.ice.demo.helloworld.glacier2.client;
 import com.bglmmz.ice.demo.helloworld.slice.HelloServicePrx;
 import com.zeroc.Ice.Properties;
 
-public class HelloClient {
+public class HelloClient{
     public static void main(String[] args) {
         int status = 0;
 
         com.zeroc.Ice.InitializationData initData = new com.zeroc.Ice.InitializationData();
 
         Properties properties = com.zeroc.Ice.Util.createProperties();
-        //表明通过远程网络的Glacier2来访问远程服务
+        //1. 配置默认router
         properties.setProperty("Ice.Default.Router", "DefaultGlacier2/router:tcp -p 4064 -h 192.168.10.149");
+        //2. 关闭ACM
+        properties.setProperty("Ice.ACM.Client", "0");
+        properties.setProperty("Ice.RetryIntervals", "1");
+
         initData.properties = properties;
 
 
         // Communicator实例
         try (com.zeroc.Ice.Communicator ic = com.zeroc.Ice.Util.initialize(args, initData)) {
-
+            //3. 创建Session
             connectRouter(ic);
 
             status = run(ic);
@@ -116,6 +120,7 @@ public class HelloClient {
             // otherwise try again after printing the error message.
             //
             try {
+                //创建基于密码方式的session
                 session = router.createSession(id, pw);
                 break;
             } catch (com.zeroc.Glacier2.PermissionDeniedException ex) {
@@ -141,4 +146,5 @@ public class HelloClient {
                         "x: exit\n" +
                         "?: help\n");
     }
+
 }

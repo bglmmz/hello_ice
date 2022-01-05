@@ -31,7 +31,7 @@ Glacier2.Server.Endpoints=
 #
 
 #鉴权方式，demo不用鉴权
-Glacier2.PermissionsVerifier=DemoGlacier2/NullPermissionsVerifier
+Glacier2.PermissionsVerifier=DefaultGlacier2/NullPermissionsVerifier
 
 #
 # The timeout for inactive sessions. If any client session is inactive
