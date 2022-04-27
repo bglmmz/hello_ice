@@ -49,7 +49,7 @@ public class HelloServer2 {
             //Servant 是一个实现了slice中定义的接口，可以认为就是个服务
             com.zeroc.Ice.Object object = new HelloServiceImpl();
 
-            // 调用适配器的add,告诉它有一个新的servant,传递的参数是刚才的servant,这里的“HelloService”是Servant的名字
+            // 调用适配器的add,告诉它有一个新的servant,传递的参数是刚才的servant,这里的“task_1_party_id_2”是Servant的唯一标识
             String servantId = "task_1_party_id_2";
             adapter.add(object, com.zeroc.Ice.Util.stringToIdentity(servantId));
 

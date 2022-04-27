@@ -11,7 +11,7 @@ public class HelloClient{
 
         Properties properties = com.zeroc.Ice.Util.createProperties();
         //1. 配置默认router
-        properties.setProperty("Ice.Default.Router", "DefaultGlacier2/router:tcp -p 4064 -h 192.168.10.149");
+        properties.setProperty("Ice.Default.Router", "DefaultGlacier2/router:tcp -p 4064 -h localhost");
         //2. 关闭ACM
         properties.setProperty("Ice.ACM.Client", "0");
         properties.setProperty("Ice.RetryIntervals", "1");
@@ -36,7 +36,7 @@ public class HelloClient{
         //在properties文件的"HelloService.Proxy"这个配置项的值，就是stringToProxy("HelloService:default -p 10001")这个的参数。
 
         //"HelloService:tcp -h 192.168.21.26 -p 10001"表明服务的identityId和所在地址端口，这个地址端口可以是远程网络的内网地址端口，远程网络的Glacier2会帮忙转发的。
-        HelloServicePrx helloService = HelloServicePrx.checkedCast(ic.stringToProxy("HelloService:tcp -h 192.168.21.26 -p 10001"));
+        HelloServicePrx helloService = HelloServicePrx.checkedCast(ic.stringToProxy("HelloService:tcp -h localhost -p 10001"));
         if (helloService == null) {
             System.err.println("invalid proxy");
             return 1;
