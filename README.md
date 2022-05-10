@@ -1,5 +1,5 @@
 演示
-***REMOVED***
+
 1. 普通的ice服务端、客户端 
 2. 客户端访问远程Glacier2后的服务
 3. 客户端通过IceGridRegistry访问动态注册的服务
