@@ -4,4 +4,4 @@
 
 demo中的gridregister，是应用于特殊业务需求的：动态创建servant，动态注册到Grid。（所以只能基于代码来配置）
 
-所有demo学习的进阶路径： normal -> biobject -> glacier2(gridregister) -> gridregister(glacier2) -> gridregister_glacier2
+demo学习的进阶路径： normal -> biobject -> glacier2(gridregister) -> gridregister(glacier2) -> gridregister_glacier2
